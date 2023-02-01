@@ -36,6 +36,8 @@ spec:
           envFrom:
             - configMapRef:
                 name: {{ .Values.image.configMapRef }}
+            - secretRef:
+                name: {{ .Values.image.secretsRef }}
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
