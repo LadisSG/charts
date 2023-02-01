@@ -4,6 +4,6 @@ metadata:
   name: asyncapijson-config
   namespace: {{ .Values.configMapRef.namespace }}
 data:
-  DATABASE_NAME: "{{ .Values.configMapRef.namespace.data.DATABASE_NAME }}"
-  DATABASE_PORT: {{ .Values.configMapRef.namespace.data.DATABASE_PORT }}
-  DATABASE_HOST: "{{ .Values.configMapRef.namespace.data.DATABASE_HOST }}"
+  DATABASE_NAME: "{{ .Values.configMapRef.data.DATABASE_NAME }}"
+  DATABASE_PORT: {{ .Values.configMapRef.data.DATABASE_PORT }}
+  DATABASE_HOST: "{{ .Values.configMapRef.data.DATABASE_HOST }}"
