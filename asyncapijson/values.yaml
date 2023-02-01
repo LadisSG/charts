@@ -7,9 +7,9 @@ replicaCount: 1
 configMapRef:
   namespace: asyncapi-ns
   data:
-    DATABASE_NAME: "djangodb"
-    DATABASE_PORT: "3306"
-    DATABASE_HOST: "10.101.251.199"
+    DATABASE_NAME: djangodb
+    DATABASE_PORT: 3306
+    DATABASE_HOST: 10.101.251.199
 
 image:
   repository: lsgelec/asyncapijson
