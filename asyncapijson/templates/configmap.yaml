@@ -2,10 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: asyncapijson-config
-  namespace: {{ .Values.configMapRef.namespace }}
-  labels:
-    app.kubernetes.io/name: argocd
+  namespace: asyncapi-ns
 data:
-    database_name: "djangodb"
-    database_port: 3306
-    database_host: "10.101.251.199"
+  DATABASE_NAME: "djangodb"
+  DATABASE_PORT: "3306"
+  DATABASE_HOST: "10.101.251.199"
