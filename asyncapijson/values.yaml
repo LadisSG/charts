@@ -5,7 +5,6 @@
 replicaCount: 1
 
 configMapRef:
-  namespace: asyncapi-ns
   data:
     DATABASE_NAME: djangodb
     DATABASE_PORT: 3306
