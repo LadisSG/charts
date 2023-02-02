@@ -12,7 +12,7 @@ configMapRef:
 
 image:
   repository: lsgelec/asyncapijson
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
   configMapRef: asyncapijson-config
