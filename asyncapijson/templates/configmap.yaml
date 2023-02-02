@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: asyncapijson-config
-  namespace: asyncapi-ns
+  namespace: {{ .Values.configMapRef.namespace }}
 data:
   DATABASE_NAME: "djangodb"
   DATABASE_PORT: "3306"
