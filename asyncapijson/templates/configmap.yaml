@@ -4,6 +4,6 @@ metadata:
   name: asyncapijson-config
   #namespace: names Si no se indica namespace lo introducira en el mismo namespace de la aplicación
 data:
-  DATABASE_NAME: {{ .Values.configMapRef.namespace.data.DATABASE_NAME }}
+  DATABASE_NAME: {{ .Values.configMapRef.namespace.data.DATABASE_NAME | quote }}
   DATABASE_PORT: "3306"
   DATABASE_HOST: "10.101.251.199"
