@@ -21,8 +21,10 @@ spec:
       labels:
         {{- include "asyncapijson.selectorLabels" . | nindent 8 }}
     spec:
-      imagePullSecrets: 
-        - name: regcred
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       serviceAccountName: {{ include "asyncapijson.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}

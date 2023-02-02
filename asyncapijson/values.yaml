@@ -18,7 +18,8 @@ image:
   configMapRef: asyncapijson-config
   secretsRef: asyncapijson-secrets
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: regcred
 nameOverride: ""
 fullnameOverride: ""
 
