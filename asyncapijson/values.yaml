@@ -6,7 +6,7 @@ replicaCount: 1
 
 configMapRef:
   data:
-    DATABASE_NAME: "djangodb"
+    DATABASE_NAME: djangodb
     DATABASE_PORT: 3306
     DATABASE_HOST: 10.101.251.199
 
