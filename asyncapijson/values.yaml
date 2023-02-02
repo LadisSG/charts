@@ -18,12 +18,8 @@ image:
   configMapRef: asyncapijson-config
   secretsRef: asyncapijson-secrets
 
-imageCredentials:
-    registry: asyncapijson
-    username: lsgelec
-    password: 4039cafjh
-
-imagePullSecrets: []
+imagePullSecrets: 
+    - name: regcred
 nameOverride: ""
 fullnameOverride: ""
 
