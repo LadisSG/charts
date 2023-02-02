@@ -21,8 +21,7 @@ spec:
       labels:
         {{- include "asyncapijson.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
+      imagePullSecrets: 
         - name: regcred
       serviceAccountName: {{ include "asyncapijson.serviceAccountName" . }}
       securityContext:
