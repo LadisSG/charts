@@ -45,11 +45,13 @@ spec:
               protocol: TCP
           readinessProbe:
             tcpSocket:
+              path: {{ .Values.configMapRef.data.DATABASE_HOST | quote }}
               port: {{ .Values.service.port }}
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             tcpSocket:
+              path: {{ .Values.configMapRef.data.DATABASE_HOST | quote }}
               port: {{ .Values.service.port }}
             initialDelaySeconds: 15
             periodSeconds: 20
