@@ -47,20 +47,24 @@ spec:
             httpGet:
               host: {{ .Values.configMapRef.data.DATABASE_HOST }}
               port: {{ .Values.service.port }}
+              scheme: HTTP
               httpHeaders:
                 - name: Custom-Header
                   value: Awesome
             initialDelaySeconds: 20
             periodSeconds: 3
+            timeoutSeconds: 10
           readinessProbe:
             httpGet:
               host: {{ .Values.configMapRef.data.DATABASE_HOST }}
               port: {{ .Values.service.port }}
+              scheme: HTTP
               httpHeaders:
                 - name: Custom-Header
                   value: Awesome
             initialDelaySeconds: 20
             periodSeconds: 3
+            timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
