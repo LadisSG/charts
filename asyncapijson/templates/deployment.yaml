@@ -43,18 +43,18 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          readinessProbe:
-            tcpSocket:
-              path: {{ .Values.configMapRef.data.DATABASE_HOST | quote }}
+          livenessProbe:
+            httpGet:
+              path: /{{ .Values.configMapRef.data.DATABASE_HOST | quote }}
               port: {{ .Values.service.port }}
             initialDelaySeconds: 5
-            periodSeconds: 10
-          livenessProbe:
-            tcpSocket:
-              path: {{ .Values.configMapRef.data.DATABASE_HOST | quote }}
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /{{ .Values.configMapRef.data.DATABASE_HOST | quote }}
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 15
-            periodSeconds: 20
+            initialDelaySeconds: 5
+            periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
