@@ -47,13 +47,13 @@ spec:
             httpGet:
               host: {{ .Values.configMapRef.data.DATABASE_HOST }}
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 5
+            initialDelaySeconds: 30
             periodSeconds: 3
           readinessProbe:
             httpGet:
               host: {{ .Values.configMapRef.data.DATABASE_HOST }}
               port: {{ .Values.service.port }}
-            initialDelaySeconds: 5
+            initialDelaySeconds: 30
             periodSeconds: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
