@@ -45,7 +45,7 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /
+              path: /admin
               host: {{ .Values.configMapRef.data.DATABASE_HOST }}
               port: {{ .Values.service.port }}
               scheme: HTTP
@@ -54,7 +54,7 @@ spec:
             timeoutSeconds: 10
           readinessProbe:
             httpGet:
-              path: /
+              path: /admin
               host: {{ .Values.configMapRef.data.DATABASE_HOST }}
               port: {{ .Values.service.port }}
               scheme: HTTP
