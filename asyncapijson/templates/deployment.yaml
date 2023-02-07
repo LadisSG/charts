@@ -43,6 +43,24 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              host: {{ .Values.configMapRef.data.DATABASE_HOST }}
+              port: {{ .Values.service.port }}
+              scheme: HTTP
+            initialDelaySeconds: 20
+            periodSeconds: 3
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              host: {{ .Values.configMapRef.data.DATABASE_HOST }}
+              port: {{ .Values.service.port }}
+              scheme: HTTP
+            initialDelaySeconds: 20
+            periodSeconds: 3
+            timeoutSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
