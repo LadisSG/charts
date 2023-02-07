@@ -46,8 +46,8 @@ spec:
           livenessProbe:
             httpGet:
               path: /admin
-              host: 127.0.0.1
-              port: 8090
+              host: {{ .Values.configMapRef.data.DATABASE_HOST }}
+              port: {{ .Values.service.port }}
               scheme: HTTP
             initialDelaySeconds: 20
             periodSeconds: 3
@@ -55,8 +55,8 @@ spec:
           readinessProbe:
             httpGet:
               path: /admin
-              host: 127.0.0.1
-              port: 8090
+              host: {{ .Values.configMapRef.data.DATABASE_HOST }}
+              port: {{ .Values.service.port }}
               scheme: HTTP
             initialDelaySeconds: 20
             periodSeconds: 3
