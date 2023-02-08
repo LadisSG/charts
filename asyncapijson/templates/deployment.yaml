@@ -43,13 +43,12 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          command: [ "wget" ,"http://10.101.35.170:3306"]
           readinessProbe:
             exec:
               command:
               - wget
               - --spider
-              - http://10.101.35.170:3306
+              - http://10.101.35.170:3301
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
