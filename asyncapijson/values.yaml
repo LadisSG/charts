@@ -13,7 +13,7 @@ configMapRef:
 secretRef:
   data:
     DATABASE_USER: root
-    DATABASE_PASSWORD: D7gPZVGIT5
+    DATABASE_PASSWORD: Elecnor2022
 
 image:
   repository: lsgelec/asyncapijson
