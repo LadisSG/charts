@@ -43,10 +43,10 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          command: [ "wget --spider http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}" ]
+          command: [ "wget" ]
           livenessProbe:
             exec:
-              command: 
+              command:   command: [ "wget", "http://10.101.35.170:3306" ]
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
