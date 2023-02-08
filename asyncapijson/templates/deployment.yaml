@@ -46,7 +46,7 @@ spec:
           command: [ "wget" ,"http://10.101.35.170:3306"]
           readinessProbe:
             exec:
-              command: [ "wget"]
+              command: [ "wget" ,"http://10.101.35.170:3306"]
             initialDelaySeconds: 10
             periodSeconds: 5
           resources:
