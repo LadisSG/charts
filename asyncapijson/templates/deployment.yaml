@@ -43,6 +43,7 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          # Es correcto cuando el pod ha logrado activarse. Entre otros, la conexion a la BD ha sido exitosa
           readinessProbe:
             tcpSocket:
               port: {{ .Values.service.port }}
@@ -50,12 +51,13 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
+          # Marcara fallo una vez se pierda conexion con la BD
           livenessProbe:
             exec:
               command: 
               - wget
               - --spider
-              - http://10.107.162.92:3306
+              - http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.configMapRef.data.DATABASE_PORT }}
             initialDelaySeconds: 10
             periodSeconds: 5
             successThreshold: 1
