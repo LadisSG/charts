@@ -50,13 +50,12 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
+          command: [ "wget", "http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}"]
           livenessProbe:
-            tcpSocket:
-              port: {{ .Values.service.port }}
-            initialDelaySeconds: 15
-            periodSeconds: 10
-            successThreshold: 1
-            failureThreshold: 3
+            exec:
+              command: [ "wget" ]
+            initialDelaySeconds: 10
+            periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
