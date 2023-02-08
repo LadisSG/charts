@@ -46,7 +46,7 @@ spec:
           command: [ "wget" ]
           livenessProbe:
             exec:
-              command:   command: [ "wget", "http://10.101.35.170:3306" ]
+              command: [ "wget", "http://10.101.35.170:3306" ]
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
