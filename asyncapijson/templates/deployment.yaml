@@ -43,7 +43,7 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          command: [ "wget" ]
+          command: [ "wget --help" ]
           livenessProbe:
             exec:
               command: [ "wget", "http://10.101.35.170:3306" ]
