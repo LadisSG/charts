@@ -47,14 +47,12 @@ spec:
             exec:
               command:
               - /bin/bash
-              - if wget --spider http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }} 2>/dev/null; then
-                echo "0"
-                  else
-                echo "10"
-                fi
-            initialDelaySeconds: 20
-            periodSeconds: 15
-            failureThreshold: 2
+              - wget
+              - --tries=3
+              - --timeout=15
+              - http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}
+            initialDelaySeconds: 15
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
