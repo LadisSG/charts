@@ -46,12 +46,12 @@ spec:
           command: [ "wget" ,"http://10.101.35.170:3306"]
           livenessProbe:
             exec:
-              command: [ "wget" ]
+              command: [ "wget" ,"http://10.101.35.170:3306"]
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             exec:
-              command: [ "wget" ]
+              command: [ "wget" ,"http://10.101.35.170:3306"]
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
