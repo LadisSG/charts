@@ -52,7 +52,10 @@ spec:
             failureThreshold: 3
           livenessProbe:
             exec:
-              command: [ "wget", "http://{{ .Values.configMapRef.data.DATABASE_HOST }}:3306"]
+              command: 
+              - wget
+              - --spider
+              - http://10.107.162.92:3306
             initialDelaySeconds: 10
             periodSeconds: 5
             successThreshold: 1
