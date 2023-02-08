@@ -43,9 +43,15 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          command: [ "wget" ,"http://10.101.35.170:3306"]
           livenessProbe:
             exec:
-              command: [ "wget" ,"http://10.101.35.170:3306"]
+              command: [ "wget" ]
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            exec:
+              command: [ "wget" ]
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
