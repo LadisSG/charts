@@ -44,10 +44,10 @@ spec:
               containerPort: {{ .Values.service.port }}
               protocol: TCP
           command: [ "wget" ,"http://10.101.35.170:3306"]
-          readinessProbe:
+          livenessProbe:
             exec:
-              command: [ "wget" ,"http://10.101.35.170:3306"]
-            initialDelaySeconds: 10
+              command: [ "wget"]
+            initialDelaySeconds: 5
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
