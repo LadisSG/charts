@@ -43,6 +43,18 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          livenessProbe:
+            exec:
+              command:
+              - /bin/bash
+              - if wget --spider http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }} 2>/dev/null; then
+                echo "0"
+                  else
+                echo "10"
+                fi
+            initialDelaySeconds: 20
+            periodSeconds: 15
+            failureThreshold: 2
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
