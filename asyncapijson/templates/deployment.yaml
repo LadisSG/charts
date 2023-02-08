@@ -47,7 +47,7 @@ spec:
             exec:
               command: 
                 - /bin/bash
-                - wget --spider http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}" ]
+                - wget --spider http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}
             initialDelaySeconds: 10
             periodSeconds: 5
           resources:
