@@ -43,16 +43,13 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
+          
+          command: [ "wget" ]
           livenessProbe:
             exec:
-              command:
-              - /bin/bash
-              - wget
-              - --tries=3
-              - --timeout=15
-              - http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}
-            initialDelaySeconds: 15
-            periodSeconds: 10
+              command: [ "wget", "http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}" ]
+            initialDelaySeconds: 10
+            periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
