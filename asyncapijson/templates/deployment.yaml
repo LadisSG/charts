@@ -50,10 +50,9 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             failureThreshold: 3
-          command: [ "wget", "http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}"]
           livenessProbe:
             exec:
-              command: [ "wget" ]
+              command: [ "wget", "http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}"]
             initialDelaySeconds: 10
             periodSeconds: 5
           resources:
