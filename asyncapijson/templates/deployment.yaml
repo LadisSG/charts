@@ -43,10 +43,10 @@ spec:
             - name: http
               containerPort: {{ .Values.service.port }}
               protocol: TCP
-          command: [ "wget" , "--spider http://10.101.35.170:3306"]
+          command: [ "wget" ,"spider","http://10.101.35.170:3306"]
           livenessProbe:
             exec:
-              command: [ "wget", "http://10.101.35.170:3308" ]
+              command: [ "wget" ]
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
