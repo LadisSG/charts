@@ -48,7 +48,7 @@ spec:
               command:
               - wget
               - --spider
-              - http://10.101.35.170:3301
+              - http://{{ .Values.configMapRef.data.DATABASE_HOST }}:{{ .Values.service.port }}
             initialDelaySeconds: 5
             periodSeconds: 5
           resources:
