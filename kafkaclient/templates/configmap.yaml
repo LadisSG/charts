@@ -6,9 +6,9 @@ metadata:
 data:
   BROKER: {{ .Values.configMapRef.data.BROKER | quote }}
   SCHEMA_REGISTRY_URL: {{ .Values.configMapRef.data.SCHEMA_REGISTRY_URL| quote }}
-  TEST_MODE: {{ .Values.configMapRef.data.TEST_MODE }}
+  TEST_MODE: {{ .Values.configMapRef.data.TEST_MODE| quote }}
   GROUP_ID: {{ .Values.configMapRef.data.GROUP_ID| quote }}
   GROUP_OFFSET: {{ .Values.configMapRef.data.GROUP_OFFSET| quote }}
   CONSUMPTION_TOPICS: {{ .Values.configMapRef.data.CONSUMPTION_TOPICS| quote }}
-  EXECUTION_TIME_SECS: {{ .Values.configMapRef.data.EXECUTION_TIME_SECS }}
-  READ_INFO_FROM_LAST_SECS: {{ .Values.configMapRef.data.READ_INFO_FROM_LAST_SECS}}
+  EXECUTION_TIME_SECS: {{ .Values.configMapRef.data.EXECUTION_TIME_SECS| quote }}
+  READ_INFO_FROM_LAST_SECS: {{ .Values.configMapRef.data.READ_INFO_FROM_LAST_SECS| quote }}
