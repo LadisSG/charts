@@ -11,6 +11,7 @@ spec:
   selector:
     matchLabels:
       {{- include "kafkaclient.selectorLabels" . | nindent 6 }}
+  backoffLimit: 0
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -19,7 +20,6 @@ spec:
       {{- end }}
       labels:
         {{- include "kafkaclient.selectorLabels" . | nindent 8 }}
-    backoffLimit: 0
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
