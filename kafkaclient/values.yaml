@@ -16,7 +16,7 @@ configMapRef:
     READ_INFO_FROM_LAST_SECS: 0
     
 image:
-  repository: lsgelec/kafkaclient
+  repository: elnavccaa/kafkaclient
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: 0.1.0
